@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Digital Badges</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/static/assets/js/bootstrap.min.js"></script> 
+</head>
+
+<body>
+    <section class="badge-header">
+        <header>
+            <nav class="navbar navbar-dark bg-primary">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href=""><h3>Digital Badges</h3></a> 
+                </div>
+            </nav>
+        </header>
+    </section>
+    {% block content %}
+	  
+    <section>
+        <div class="container">
+            <h4 class="topic">Home Page</h4>
+        </div>
+        <div class="container buttons_container">
+            <a href="{% url 'UploadBadge' %}"><button class="homepage_button">Click here to go Badge Upload Page</button></a>
+            <a href=""><button class="homepage_button">Click here to go List of Badges Page</button></a>
+            <a href=""><button class="homepage_button">Click here to go Verification Page of Student Eligibility</button></a>
+        </div>
+    </section>
+    {% endblock %}
+</body>
+
+
+</html>

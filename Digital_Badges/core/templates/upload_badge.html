@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+{% block content %}
+<section>
+    <div class="container">
+        <h4 class="topic">Upload Digital Badge Details</h4>
+    </div>
+    <div class="container form_container">
+        <form  method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="group">Badge Name<span style="color:red">*</span></label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" id="Name" name="Name" required>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-3">
+                    <label for="group">Badge Description<span style="color:red">*</span></label>
+                </div>
+                <div class="col-md-9">
+                    <textarea id="Description" name="Description" required></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="group">Upload Badge<span style="color:red">*</span></label>
+                </div>
+                <div class="col-md-9">
+                    <input type="file" id="file" name="file" accept=".png" required>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-3">
+                    <label for="group">Eligible Students<span style="color:red">*</span></label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" id="students" name="students" required>
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col-md-12">
+                    <button>Upload</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
