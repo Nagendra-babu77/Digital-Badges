@@ -30,8 +30,7 @@
         </div>
         <div class="container buttons_container">
             <a href="{% url 'UploadBadge' %}"><button class="homepage_button">Click here to go Badge Upload Page</button></a>
-            <a href=""><button class="homepage_button">Click here to go List of Badges Page</button></a>
-            <a href=""><button class="homepage_button">Click here to go Verification Page of Student Eligibility</button></a>
+            <a href="{% url 'badges_list' %}"><button class="homepage_button">Click here to go List of Badges Page</button></a>
         </div>
     </section>
     {% endblock %}
