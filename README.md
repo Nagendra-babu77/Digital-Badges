@@ -2,6 +2,9 @@
 
 **Development:**
 
+**Install the dependencies:**<br>
+pip install -r requirements.txt
+
 **Running Server:**<br>
 python manage.py runserver
 
