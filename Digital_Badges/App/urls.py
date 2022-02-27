@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('',index,name="index"),
+    path('badge/verify',check_student_eligibilty),
     path('UploadBadge/',upload_badge,name="UploadBadge"),
     path('ListofBadges/',badges_list,name="badges_list"), 
     path('ListofBadges/getbadge/<int:pk>/',get_badge,name="get_badge"), 

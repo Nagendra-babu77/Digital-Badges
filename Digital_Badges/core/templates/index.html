@@ -28,14 +28,69 @@
         <div class="container">
             <h4 class="topic">Home Page</h4>
         </div>
-        <div class="container buttons_container">
-            <a href="{% url 'UploadBadge' %}"><button class="homepage_button">Click here to go Badge Upload Page</button></a>
-            <a href="{% url 'badges_list' %}"><button class="homepage_button">Click here to go List of Badges Page</button></a>
+        <div class="container">
+            <div class="row my-4">
+                <div class="col-md-12" align="center">
+                    <a href="{% url 'UploadBadge' %}"><button class="btn btn-primary text-white  mar-lt-20">Click here to go Badge Upload Page</button></a>
+                
+                    <a href="{% url 'badges_list' %}"><button class="btn btn-primary text-white  mar-lt-20">Click here to go List of Badges Page</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="container form2_container">
+            <h6 class="topic">Check Student Eligiblilty</h6>
+                <div class="row my-3 mx-0">
+                    <div class="col-md-4">
+                        <label for="group">Badge Name<span style="color:red">*</span></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Name" name="Name" required>
+                    </div>
+                </div>
+                <div class="row my-3 mx-0">
+                    <div class="col-md-4">
+                        <label for="group">Email ID<span style="color:red">*</span></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="row my-3 mx-0">
+                    <div class="col-md-12" align="center">
+                        <button class="btn btn-primary text-white  mar-lt-20" onclick="check();">Check</button>
+                    </div>
+                </div>
+                <div class="row my-3 mx-0">
+                    <div class="col-md-12">
+                        <div id="result"></div>
+                    </div>
+                <div>
+            
         </div>
     </section>
+    <script>
+        function check(){
+            var badge_name=document.getElementById("Name").value;
+            var email_id=document.getElementById("email").value;
+            $.ajax({
+                url: "/badge/verify?name="+badge_name+"&email="+email_id,
+            }).done(function(data){  
+                var result="";
+                result+="<h6>Result: </h6>";
+                if(data.status_code==200){
+                    result+="<p>Eligible for this badge</p>";
+                    result+="<img src='"+data.image+"' width='150px' height='150px' style='margin:10px' alt='Badge Image'>";
+                }
+                else{
+                    result+="<p>"+data.message+"</p>";
+                }
+                document.getElementById('result').innerHTML=result;
+            });
+        }
+    </script>
     {% endblock %}
 </body>
 
-<script src="/static/assets/js/script.js"></script>
+
 
 </html>

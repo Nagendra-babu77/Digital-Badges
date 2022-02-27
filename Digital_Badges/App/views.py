@@ -1,13 +1,40 @@
 from django.shortcuts import render,redirect
 from .models import *
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from django.http import JsonResponse
 from rest_framework import status
 import json
 import os
+from rest_framework.permissions import AllowAny
+from django.utils.datastructures import MultiValueDictKeyError
+from django.core.exceptions import MultipleObjectsReturned,ObjectDoesNotExist
 # Create your views here.
+
 def index(request):
 	return render(request,'index.html')
+
+@api_view()
+@permission_classes([AllowAny])
+def check_student_eligibilty(request):
+	try:
+		Name=request.query_params['name']
+		Email=request.query_params['email']
+		badge=Badge_Details.objects.get(Name=Name)
+		eligible_students=badge.Eligible_students
+		for s in eligible_students:
+			if s==Email:
+				img=badge.Image
+				return JsonResponse({'status_code':200,'image':img.url})
+		return JsonResponse({"status_code":403,"message":"Not Eligible!"})
+	except MultiValueDictKeyError:
+		return JsonResponse({"status_code":403,"message":"Key Parameter is Wrong!"})
+	except MultipleObjectsReturned:
+		return JsonResponse({"status_code":403,"message":"Duplicate Badge Name Presented!"})
+	except ObjectDoesNotExist:
+		return JsonResponse({"status_code":403,"message":"Badge Name doesn't exist!"})
+	
+
+	
 
 def upload_badge(request):
 	if request.method=="POST" and request.FILES['file']:
@@ -39,7 +66,6 @@ def badges_list(request):
 
 				# deleting old uploaded image.
 				oldimage_path = badge_details.Image.path
-				print(oldimage_path)
 				if os.path.exists(oldimage_path):
 					os.remove(oldimage_path)
 
