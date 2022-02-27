@@ -1,6 +1,6 @@
 # Digital-Badges
 
-**Django Project**<br>
+**Details**<br>
 Backend: Django<br>
 Database: SQLite(default)
 
