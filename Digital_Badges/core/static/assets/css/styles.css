@@ -14,24 +14,27 @@
 .topic{
     text-align:center;
 }
-.homepage_button{
-    float:left;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    padding: 15px;
-    margin:5px;
-    border-radius: 40px;
-    cursor: pointer;
-    width:120px;
-    height:120px;
-    font-size:16px;
-    opacity:0.9;
+.padding-0{
+    margin-right:0px;
+   
 }
-.buttons_container{
-    width: 23%;
-    margin: 10px auto;
-    padding: 20px; 
+.form2_container{
+    width: 40%;
+    border: 1px solid #007bff;
+    margin: 0px auto;
+    border-radius: 6px;
+    padding: 15px 35px 5px;
+    column-gap: 1px;
+}
+.form2_container input {
+    padding: 5.5px;
+    border: 1px solid #0005;
+    border-radius: 4px;
+    width: 100%;
+    height: 30px;
+}
+.form2_container label{
+    font-size: 16px;
 }
 .form_container{
     width: 65%;
