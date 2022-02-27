@@ -1,6 +1,20 @@
 # Digital-Badges
 
-Screenshots:
+**Development:**
+
+**Running Server:**<br>
+python manage.py runserver
+
+**Migrating Databases:**<br>
+When changing models, we have to update the database. Migrations help us track changes.
+
+Might need to use db's shell to create the main database when first creating.
+
+python manage.py makemigrations<br>
+python manage.py migrate
+
+
+**Screenshots:**
 
 Home Page:
 ![as1](https://user-images.githubusercontent.com/85171000/155883621-194f890c-d4a5-4e53-a5ca-3b120c99e412.png)
