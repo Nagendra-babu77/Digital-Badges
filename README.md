@@ -1,20 +1,21 @@
 # Digital-Badges
 
+**Django Project**<br>
+Backend: Django<br>
+Database: SQLite(default)
+
 **Development:**
 
 **Install the dependencies:**<br>
-pip install -r requirements.txt
+<code>pip install -r requirements.txt</code>
 
 **Migrating Databases:**<br>
-When changing models, we have to update the database. Migrations help us track changes.
 
-Might need to use db's shell to create the main database when first creating.
-
-python manage.py makemigrations<br>
-python manage.py migrate
+<code>python manage.py makemigrations</code><br>
+<code>python manage.py migrate</code>
 
 **Running Server:**<br>
-python manage.py runserver and go to http://127.0.0.1:8000
+<code>python manage.py runserver</code> and go to http://127.0.0.1:8000
 
 **Screenshots:**
 
