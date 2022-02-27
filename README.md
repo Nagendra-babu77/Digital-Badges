@@ -5,9 +5,6 @@
 **Install the dependencies:**<br>
 pip install -r requirements.txt
 
-**Running Server:**<br>
-python manage.py runserver
-
 **Migrating Databases:**<br>
 When changing models, we have to update the database. Migrations help us track changes.
 
@@ -16,6 +13,8 @@ Might need to use db's shell to create the main database when first creating.
 python manage.py makemigrations<br>
 python manage.py migrate
 
+**Running Server:**<br>
+python manage.py runserver and go to http://127.0.0.1:8000
 
 **Screenshots:**
 
